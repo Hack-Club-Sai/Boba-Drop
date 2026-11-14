@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boba Drip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <b>BOBA DRIP</b>
+    <a href="#drop">Boba Drop</a>
+    <a href="#maker">Boba Maker</a>
+    <a href="#faq">FAQ</a>
+  </div>
+
+  <div class="title-area">
+    <h1>Boba Drip</h1>
+    <p>Fresh tea and chewy boba made every day.</p>
+  </div>
+
+  <div class="box" id="drop">
+    <h2>The Boba Drop</h2>
+    <p>Join our VIP club! Every Friday at 3pm we drop one secret flavor. Members get it first before it sells out.</p>
+    <button onclick="alert('You joined the VIP list!')">Join the Club</button>
+  </div>
+
+  <div class="box" id="maker">
+    <h2>Boba Maker</h2>
+    <p>Make your own custom drink:</p>
+
+    <p><b>Pick Tea:</b></p>
+    <select id="tea">
+      <option value="Brown Sugar Milk Tea">Brown Sugar Milk Tea</option>
+      <option value="Strawberry Matcha">Strawberry Matcha</option>
+      <option value="Taro Milk Tea">Taro Milk Tea</option>
+      <option value="Mango Green Tea">Mango Green Tea</option>
+    </select>
+
+    <p><b>Pick Topping:</b></p>
+    <select id="topping">
+      <option value="Boba Pearls">Boba Pearls</option>
+      <option value="Rainbow Jelly">Rainbow Jelly</option>
+      <option value="Cheese Foam">Cheese Foam</option>
+      <option value="Nothing">Nothing</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="makeDrink()">Make Drink</button>
+    <button class="dark-btn" onclick="randomDrink()">Randomize</button>
+
+    <div class="drink-output">
+      <h3 id="output">Your drink will show up here...</h3>
+    </div>
+  </div>
+
+  <div class="box" id="faq">
+    <h2>FAQ</h2>
+
+    <h3>What is boba made of?</h3>
+    <p>It is made from tapioca pearls cooked in brown sugar so they are sweet and chewy.</p>
+
+    <h3>Do you have oat milk?</h3>
+    <p>Yes we have oat milk and almond milk.</p>
+
+    <h3>Where is the store?</h3>
+    <p>Right across from the park on Main Street.</p>
+  </div>
+
+  <script>
+    function makeDrink() {
+      var tea = document.getElementById("tea").value;
+      var topping = document.getElementById("topping").value;
+      document.getElementById("output").innerHTML = "Your order: " + tea + " with " + topping;
+    }
+
+    function randomDrink() {
+      var teas = ["Brown Sugar Milk Tea", "Strawberry Matcha", "Taro Milk Tea", "Mango Green Tea"];
+      var toppings = ["Boba Pearls", "Rainbow Jelly", "Cheese Foam"];
+      
+      var r1 = Math.floor(Math.random() * 4);
+      var r2 = Math.floor(Math.random() * 3);
+      
+      document.getElementById("output").innerHTML = "Random order: " + teas[r1] + " with " + toppings[r2];
+    }
+  </script>
+
+</body>
+</html>
